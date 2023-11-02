@@ -9,4 +9,24 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
+    {
+      "f3fora/cmp-spell",
+      dependencies =  {"nvim-cmp"},
+      config = function()
+          require('cmp').setup({
+              sources = {
+                  {
+                      name = 'spell',
+                      option = {
+                          keep_all_entries = false,
+                          enable_in_context = function()
+                              return true
+                          end,
+                      },
+                  },
+              },
+          })
+      end,
+      event = "User AstroFile",
+    },
 }
